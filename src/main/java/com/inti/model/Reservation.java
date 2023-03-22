@@ -3,6 +3,8 @@ package com.inti.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,7 +18,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor @AllArgsConstructor
 public class Reservation {
 
-	private long idVoyageur;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idReservation;
 	private LocalDate dateReservation;
 	private int nbJours;
 	
