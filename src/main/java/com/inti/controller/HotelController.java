@@ -22,14 +22,14 @@ public class HotelController {
 	@GetMapping("formHotel")
 	public String formHotel()
 	{
-		return("hotel");
+		return("formhotel");
 	}
 	
 	@PostMapping("saveH")
 	public String saveHotel(@ModelAttribute("hotel") Hotel h)
 	{
 		ihr.save(h);
-		return("redirect:/hotel/liste");
+		return("redirect:/hotel/formhotel");
 	}
 	
 	
