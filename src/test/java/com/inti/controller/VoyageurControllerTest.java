@@ -48,7 +48,7 @@ public class VoyageurControllerTest {
 	public void enregistrementVoyageur() throws Exception
 	{
 		try {
-			mockMvc.perform(post("/saveV").sessionAttr("voyageur", new Voyageur("Duprès", "Dan", 25)))
+			mockMvc.perform(post("/voyageur/saveV").sessionAttr("voyageur", new Voyageur("Duprès", "Dan", 25)))
 			.andExpect(status().is3xxRedirection())
 			.andDo(print());
 		} catch (Exception e) {
