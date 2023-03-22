@@ -29,7 +29,7 @@ public class HotelController {
 	public String saveHotel(@ModelAttribute("hotel") Hotel h)
 	{
 		ihr.save(h);
-		return("redirect:/hotel/formhotel");
+		return("redirect:/hotel/formHotel");
 	}
 	
 	

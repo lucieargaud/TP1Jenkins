@@ -27,11 +27,11 @@ public class VoyageurController {
 		return"formVoyageur";
 	}
 	@PostMapping("saveV")
-	public String saveVoiture(@ModelAttribute ("voyageur") Voyageur v)
+	public String saveVoyageur(@ModelAttribute ("voyageur") Voyageur v)
 	{
 		 ivr.save(v);
 			
-		return "redirect:/ajoutVoyageur";
+		return "redirect:/voyageur/ajoutV";
 	}
 	
 	@GetMapping("listeV")
@@ -42,37 +42,37 @@ public class VoyageurController {
 	}
 	
 	@GetMapping("getVoyageur")
-	public String getVoyageur(@RequestParam("id") long id, Model m)
+	public String getVoyageur(@RequestParam("id") long idVoyageur, Model m)
 	{
-		Voyageur v = ivr.findById(id).get();
+		Voyageur v = ivr.findById(idVoyageur).get();
 		
 		m.addAttribute("voyageur", v);
 		return"afficherVoyageur";
 	}
 	
 	@GetMapping("delete/{id}")
-	public String deleteVoyageur(@PathVariable("id") long id)
+	public String deleteVoyageur(@PathVariable("id") long idVoyageur)
 	{
-		ivr.deleteById(id);
+		ivr.deleteById(idVoyageur);
 		
-		return "redirect:/listeV";
+		return "redirect:/voyageur/listeV";
 	}
 	
 	@GetMapping("update/{id}")
 	public String ModifVoyageur(@PathVariable("id") long id, Model m)
 	{
-		m.addAttribute("voiture",ivr.getReferenceById(id));
+		m.addAttribute("voy",ivr.getReferenceById(id));
 		
 		return "modifVoyageur";
 	}
 	
-	@PostMapping("modifV")
+	@PostMapping("/modifV")
 	public String updateVoyageur(@ModelAttribute ("voy") Voyageur v)
 	{
 		//comme saveOrUpdate
 		 ivr.save(v);
 			
-		return "redirect:/listeV";
+		return "redirect:/voyageur/listeV";
 	}
 
 	
