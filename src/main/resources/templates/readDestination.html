@@ -20,19 +20,19 @@
 				<th scope="col">id</th>
 				<th scope="col">Longitude</th>
 				<th scope="col">Latitude</th>
+				<th scope="col">Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="destination : ${listeD}">
-				<th scope="row" th:text="${destination.id}"></th>
+				<th scope="row" th:text="${destination.idDestination}"></th>
 				<td th:text="${destination.longitude}"></td>
 				<td th:text="${destination.latitude}"></td>
 
-				<td><a th:href="'update/' + ${destination.id}">
+				<td><a th:href="'update/' + ${destination.idDestination}">
 						<button type="button" class="btn btn-outline-primary">Modifier</button>
-				</a></td>
-				<td><a th:href="'delete/' + ${destination.id}">
-						<button type="button" class="btn btn-outline-primary">Supprimer</button>
+				</a> <a th:href="'delete/' + ${destination.idDestination}">
+						<button type="button" class="btn btn-outline-danger">Supprimer</button>
 				</a></td>
 			</tr>
 
