@@ -2,6 +2,7 @@ package com.inti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ public class HotelController {
 	@Autowired
 	IHotelRepository ihr; 
 	
+	// Enregistrer via un formulaire
 	@GetMapping("formHotel")
 	public String formHotel()
 	{
@@ -30,4 +32,12 @@ public class HotelController {
 		return("redirect:/reservation/liste");
 	}
 	
+	
+	// Afficher la liste
+	@GetMapping("listeHotel")
+	public String listeReservation(Model m) 
+	{
+		m.addAttribute("listeH", ihr.findAll());
+		return "listeReservation";
+	}
 }
