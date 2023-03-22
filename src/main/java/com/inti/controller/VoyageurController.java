@@ -31,7 +31,7 @@ public class VoyageurController {
 	{
 		 ivr.save(v);
 			
-		return "redirect:/ajoutVoyageur";
+		return "redirect:/ajoutV";
 	}
 	
 	@GetMapping("listeV")
