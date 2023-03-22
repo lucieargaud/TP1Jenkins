@@ -1,5 +1,7 @@
 package com.inti.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,14 +28,14 @@ public class ReservationController {
 		}
 
 		@PostMapping("save")
-		public String saveReservation(@ModelAttribute("reservation") Reservation r) {
-			irr.save(r);
+		public String saveReservation(@RequestParam("dateReservation") String dateR, @RequestParam("nbJours") int nbJours) {
+			irr.save(new Reservation(LocalDate.parse(dateR), nbJours));
 			return "redirect:/reservation/liste";
 		}
 		// Afficher la liste
 		@GetMapping("liste")
 		public String listeReservation(Model m) {
-			m.addAttribute("listeReservation", irr.findAll());
+			m.addAttribute("listeR", irr.findAll());
 			return "listeReservation";
 		}
 		
@@ -49,13 +51,13 @@ public class ReservationController {
 		public String modifieReservation(@RequestParam("id") long id, Model m)
 		{
 			m.addAttribute("reservation", irr.findById(id).get());
-			return "modifierReservation";
+			return "updateReservation";
 		}
 		
 		@PostMapping("update")
-		public String updateReservation(@ModelAttribute("reservation") Reservation r)
+		public String updateReservation(@RequestParam("idReservation") long idR, @RequestParam("dateReservation") String dateR, @RequestParam("nbJours") int nbJours)
 		{
-			irr.save(r);
+			irr.save(new Reservation(idR, LocalDate.parse(dateR), nbJours));
 			return "redirect:/reservation/liste";
 		}
 		
