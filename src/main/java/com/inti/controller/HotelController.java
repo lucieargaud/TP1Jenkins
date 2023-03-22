@@ -28,7 +28,6 @@ public class HotelController {
 	@PostMapping("saveH")
 	public String saveHotel(@ModelAttribute("hotel") Hotel h)
 	{
-	
 		ihr.save(h);
 		return("redirect:/hotel/formHotel");
 	}

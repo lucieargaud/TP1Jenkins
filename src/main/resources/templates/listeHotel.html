@@ -27,15 +27,15 @@
 		</thead>
 		<tbody>
 
-			<tr th:each="hot : ${ listeH }" th:with="idH=${hot.id}">
-				<th scope="row" th:text="'Id :' + ${ idH } "></th>
+			<tr th:each="hot : ${ listeH }" th:with="idH=${hot.idHotel}">
+				<th scope="row" th:text="'Id :' + ${ idH} "></th>
 				<td th:text="'Nom Hotel:' + ${hot.nom } "></td>
 				<td th:text="'Nombre d'étoiles :' + ${ hot.nbEtoile} "></td>
 				
 				<td>
 					<a th:href="'delete/' + ${idH} "><button type="button" class="btn btn-outline-danger">Supprimer</button></a> 						
 					<a th:href="'update/' + ${idH} "><button type="button" class="btn btn-info">Modifier</button></a>
-			  </td>
+			  	</td>
 			</tr>
 
 
