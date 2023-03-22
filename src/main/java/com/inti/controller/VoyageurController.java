@@ -27,7 +27,7 @@ public class VoyageurController {
 		return"formVoyageur";
 	}
 	@PostMapping("saveV")
-	public String saveVoiture(@ModelAttribute ("voyageur") Voyageur v)
+	public String saveVoyageur(@ModelAttribute ("voyageur") Voyageur v)
 	{
 		 ivr.save(v);
 			
@@ -42,18 +42,18 @@ public class VoyageurController {
 	}
 	
 	@GetMapping("getVoyageur")
-	public String getVoyageur(@RequestParam("id") long id, Model m)
+	public String getVoyageur(@RequestParam("id") long idVoyageur, Model m)
 	{
-		Voyageur v = ivr.findById(id).get();
+		Voyageur v = ivr.findById(idVoyageur).get();
 		
 		m.addAttribute("voyageur", v);
 		return"afficherVoyageur";
 	}
 	
 	@GetMapping("delete/{id}")
-	public String deleteVoyageur(@PathVariable("id") long id)
+	public String deleteVoyageur(@PathVariable("id") long idVoyageur)
 	{
-		ivr.deleteById(id);
+		ivr.deleteById(idVoyageur);
 		
 		return "redirect:/voyageur/listeV";
 	}

@@ -78,7 +78,7 @@ public class VoyageurControllerTest {
 	public void deleteVoyageur() throws Exception
 	{
 		try {
-			mockMvc.perform(get("/voyageur/deleteV/1"))
+			mockMvc.perform(get("/voyageur/delete/1"))
 			.andExpect(status().is3xxRedirection())
 			.andExpect(redirectedUrl("/voyageur/listeV"))
 			.andDo(print());
