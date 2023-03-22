@@ -18,7 +18,7 @@ public class Avis {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private long commentaire;
+	private long id;
+	private String commentaire;
 
 }
