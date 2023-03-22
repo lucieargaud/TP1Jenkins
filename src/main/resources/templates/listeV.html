@@ -29,7 +29,7 @@
 		</thead>
 		<tbody>
 
-			<tr th:each="voy : ${ listeV }" th:with="idV=${voy.id}">
+			<tr th:each="voy : ${ listeV }" th:with="idV=${voy.idVoyageur}">
 				<th scope="row" th:text="'Id :' + ${ idV } "></th>
 				<td th:text="'Nom :' + ${ voy.nom } "></td>
 				<td th:text="'Prénom :' + ${ voy.prenom } "></td>

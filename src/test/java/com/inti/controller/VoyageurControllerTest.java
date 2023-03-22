@@ -34,7 +34,7 @@ public class VoyageurControllerTest {
 	public void ajoutVoyageur() throws Exception
 	{
 		try {
-			mockMvc.perform(get("/ajoutV"))
+			mockMvc.perform(get("/voyageur/ajoutV"))
 			.andExpect(status().isOk())
 			.andDo(print());
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class VoyageurControllerTest {
 	public void getallVoyageur() throws Exception
 	{
 		try {
-			mockMvc.perform(get("/listeV"))
+			mockMvc.perform(get("/voyageur/listeV"))
 			.andExpect(status().isOk())
 			.andExpect(view().name("listeV"))
 			.andExpect((ResultMatcher) content().string(containsString("Nom")))
@@ -78,9 +78,9 @@ public class VoyageurControllerTest {
 	public void deleteVoyageur() throws Exception
 	{
 		try {
-			mockMvc.perform(get("/deleteV/1"))
+			mockMvc.perform(get("/voyageur/deleteV/1"))
 			.andExpect(status().is3xxRedirection())
-			.andExpect(redirectedUrl("/listeV"))
+			.andExpect(redirectedUrl("/voyageur/listeV"))
 			.andDo(print());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
