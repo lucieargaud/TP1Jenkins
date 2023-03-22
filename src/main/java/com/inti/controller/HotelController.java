@@ -12,7 +12,7 @@ import com.inti.model.Hotel;
 import com.inti.repository.IHotelRepository;
 
 @Controller
-@RequestMapping("controller")
+@RequestMapping("hotel")
 public class HotelController {
 	
 	@Autowired
