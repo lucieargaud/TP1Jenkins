@@ -12,7 +12,7 @@ import com.inti.model.Hotel;
 import com.inti.repository.IHotelRepository;
 
 @Controller
-@RequestMapping("controller")
+@RequestMapping("hotel")
 public class HotelController {
 	
 	@Autowired
@@ -25,19 +25,19 @@ public class HotelController {
 		return("hotel");
 	}
 	
-	@PostMapping("saveHotel")
+	@PostMapping("saveH")
 	public String saveHotel(@ModelAttribute("hotel") Hotel h)
 	{
 		ihr.save(h);
-		return("redirect:/reservation/liste");
+		return("redirect:/hotel/liste");
 	}
 	
 	
 	// Afficher la liste
 	@GetMapping("listeHotel")
-	public String listeReservation(Model m) 
+	public String listeHotel(Model m) 
 	{
 		m.addAttribute("listeH", ihr.findAll());
-		return "listeReservation";
+		return "listeHotel";
 	}
 }
