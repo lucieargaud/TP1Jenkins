@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.inti.model.Destination;
 import com.inti.repository.IDestinationRepository;
+import com.inti.repository.IHotelRepository;
 
 @WebMvcTest(controllers = DestinationController.class)
 public class HotelController {
@@ -23,15 +24,7 @@ public class HotelController {
 	private MockMvc mockMvc;
 
 	@MockBean
-	private ;
+	private IHotelRepository ihr;
 
 	
-	@Test
-	public void readDestinationTest() {
-		try {
-			mockMvc.perform(get("/destination/read")).andExpect(status().isOk())
-					.andExpect(view().name("readDestination")).andDo(print());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+}
