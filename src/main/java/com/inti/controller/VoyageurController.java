@@ -31,7 +31,7 @@ public class VoyageurController {
 	{
 		 ivr.save(v);
 			
-		return "redirect:/ajoutV";
+		return "redirect:/voyageur/ajoutV";
 	}
 	
 	@GetMapping("listeV")
@@ -50,29 +50,29 @@ public class VoyageurController {
 		return"afficherVoyageur";
 	}
 	
-	@GetMapping("deleteV/{id}")
+	@GetMapping("delete/{id}")
 	public String deleteVoyageur(@PathVariable("id") long id)
 	{
 		ivr.deleteById(id);
 		
-		return "redirect:/listeV";
+		return "redirect:/voyageur/listeV";
 	}
 	
 	@GetMapping("update/{id}")
 	public String ModifVoyageur(@PathVariable("id") long id, Model m)
 	{
-		m.addAttribute("voiture",ivr.getReferenceById(id));
+		m.addAttribute("voy",ivr.getReferenceById(id));
 		
 		return "modifVoyageur";
 	}
 	
-	@PostMapping("modifV")
+	@PostMapping("/modifV")
 	public String updateVoyageur(@ModelAttribute ("voy") Voyageur v)
 	{
 		//comme saveOrUpdate
 		 ivr.save(v);
 			
-		return "redirect:/listeV";
+		return "redirect:/voyageur/listeV";
 	}
 
 	
