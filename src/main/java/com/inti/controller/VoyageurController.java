@@ -50,7 +50,7 @@ public class VoyageurController {
 		return"afficherVoyageur";
 	}
 	
-	@GetMapping("delete/{id}")
+	@GetMapping("deleteV/{id}")
 	public String deleteVoyageur(@PathVariable("id") long id)
 	{
 		ivr.deleteById(id);
